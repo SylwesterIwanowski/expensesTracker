@@ -1,0 +1,19 @@
+<h2>User Settings: </h2>
+<div *ngIf="settings">
+  <div>
+    Account balance: <input [(ngModel)]="settings.accountBalance"/>
+  </div>
+  <div>
+    Daily limit: <input [(ngModel)]="settings.dailyLimit"/>
+  </div>
+  <div>
+    Budget start date: <input [(ngModel)]="settings.startDayOfBudget"/>
+  </div>
+  <div>
+    Budget end date: <input [(ngModel)]="settings.endDayOfBudget"/>
+  </div>
+  <div>
+    Amortization: {{settings.amortization}}
+  </div>
+  <input type="submit" value="Save" (click)="saveSettings()"/>
+</div>

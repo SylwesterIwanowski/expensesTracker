@@ -1,0 +1,30 @@
+<h2>Daily expenses</h2>
+<div>
+  <div>
+    Account balance: {{ settings.accountBalance }}
+  </div>
+  <div>
+    Left today: {{ settings.dailyLimit - settings.spentToday }}
+  </div>
+  <div>
+    Spent today: {{ settings.spentToday }}
+  </div>
+  <div>
+    Daily limit: {{ settings.dailyLimit }}
+  </div>
+  <div>
+    Amortization: {{ settings.amortization }}
+  </div>
+  <div>
+    Savings tip to motivate you
+  </div>
+  <div>
+    Add expense <input [(ngModel)]="expense.amount" type="number" step="1">
+  </div>
+  <div>
+    Expense description <input [(ngModel)]="expense.description" type="textarea" >
+  </div>
+  <div>
+    <input type="submit" value="Add expense" (click)="addExpense()">
+  </div>
+</div>
