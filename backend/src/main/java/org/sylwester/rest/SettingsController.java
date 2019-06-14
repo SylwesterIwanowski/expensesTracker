@@ -66,7 +66,9 @@ public class SettingsController {
 	private int calculateAmortization(UserSettings settings) {
 		Integer daysToSurvive = calculateDaysTillDate(settings.getEndDayOfBudget());
 		Integer moneyToSpend = settings.getDailyLimit() * daysToSurvive;
-		return settings.getAccountBalance() - moneyToSpend;
+		Integer moneySpentToday = calculateTodayExpenses();
+		Integer todaySpentTooMuch = Math.max(moneySpentToday - settings.getDailyLimit(), 0);
+		return settings.getAccountBalance() + moneySpentToday - todaySpentTooMuch - moneyToSpend;
 	}
 
 	private boolean isDateGreaterOrEqualThanToday(Date date) {
